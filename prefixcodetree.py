@@ -16,7 +16,7 @@ class PrefixCodeTree:
            # sym+=chr(num+48)
             if num not in current.children:
                 prefix = [n for y,n in enumerate(codeword) if(y<i+1)]
-                current.children[num] = TrieNode(prefix,'')
+                current.children[num] = TrieNode(prefix)
             current = current.children[num]
         current.is_leaf = True
         current.symbol = symbol
