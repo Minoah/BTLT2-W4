@@ -1,19 +1,17 @@
 
 class TrieNode:
-    def __init__(self, code = [],symbol=''):
+    def __init__(self,code = ''):
         self.code = code
-        self.symbol=symbol
+        self.symbol = ''
         self.children = dict()
         self.is_leaf = False
 
 class PrefixCodeTree:
     def __init__(self):
-        self.root=TrieNode()
+        self.root = TrieNode()
     def insert(self, codeword, symbol):
-        current=self.root
-        sym=''
+        current = self.root
         for i, num in enumerate(codeword):
-           # sym+=chr(num+48)
             if num not in current.children:
                 prefix = [n for y,n in enumerate(codeword) if(y<i+1)]
                 current.children[num] = TrieNode(prefix)
